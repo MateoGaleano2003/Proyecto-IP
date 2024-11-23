@@ -37,7 +37,8 @@ def getAllFavouritesByUser(request):
 
 @login_required
 def saveFavourite(request):
-    pass
+    savelist = services.getAllFavourites(request)  # Pasamos el usuario autenticado
+    return render(request, 'favourites.html', {'mapped_favourites': savelist})
 
 @login_required
 def deleteFavourite(request):
