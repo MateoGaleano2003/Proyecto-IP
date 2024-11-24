@@ -23,7 +23,7 @@ def getAllImages(input=None):
 def saveFavourite(request):
     for elem in request:
         card = translator.fromRepositoryIntoCard(elem) # transformamos un request del template en una Card.
-        user = 'admin' # le asignamos el usuario correspondiente.
+        user = get_user(request) # le asignamos el usuario correspondiente.
 
     return repositories.saveFavourite(card) # lo guardamos en la base.
 
