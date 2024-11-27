@@ -32,13 +32,14 @@ def search(request):
 # Estas funciones se usan cuando el usuario está logueado en la aplicación.
 @login_required
 def getAllFavouritesByUser(request):
-    favourite_list = []
+    favourite_list = services.getAllFavourites(request)
     return render(request, 'favourites.html', { 'favourite_list': favourite_list })
 
 @login_required
 def saveFavourite(request):
+    save = services.saveFavourite(request)
     savelist = services.getAllFavourites(request)  # Pasamos el usuario autenticado
-    return render(request, 'favourites.html', {'mapped_favourites': savelist})
+    return render(request, 'favourites.html', {'savelist': savelist})
 
 @login_required
 def deleteFavourite(request):

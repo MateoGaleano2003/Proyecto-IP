@@ -14,3 +14,9 @@ class Favourite(models.Model):
 
     class Meta:
         unique_together = (('user', 'url', 'name', 'status', 'last_location', 'first_seen'),)
+
+class DifitalCurreny(models.Model):
+    name = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return self.name
